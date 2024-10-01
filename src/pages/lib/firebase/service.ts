@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt'
 
 const firestore = getFirestore(app);
 
-export async function retrieveData(collectionName: string) {
+export default async function retrieveData(collectionName: string) {
     const snapshot = await getDocs(collection(firestore, collectionName));
     const data = snapshot.docs.map((doc) => ({
         id: doc.id,
